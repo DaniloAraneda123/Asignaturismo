@@ -144,7 +144,6 @@
   <ItemGroup>
     <ClInclude Include="Algortimo.h" />
     <ClInclude Include="ListaGenerica.h" />
-    <ClInclude Include="MatrizIncidencia.h" />
     <ClInclude Include="Nivel.h" />
     <ClInclude Include="Sistema.h" />
   </ItemGroup>

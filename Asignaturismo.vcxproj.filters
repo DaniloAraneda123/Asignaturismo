@@ -35,9 +35,6 @@
     <ClInclude Include="Nivel.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="MatrizIncidencia.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="ListaGenerica.h">
       <Filter>Archivos de encabezado\Estructuras de Datos</Filter>
     </ClInclude>
