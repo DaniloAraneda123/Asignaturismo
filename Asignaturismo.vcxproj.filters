@@ -24,6 +24,9 @@
     <ClCompile Include="Nivel.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="Asignatura.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Algortimo.h">
@@ -37,6 +40,9 @@
     </ClInclude>
     <ClInclude Include="ListaGenerica.h">
       <Filter>Archivos de encabezado\Estructuras de Datos</Filter>
+    </ClInclude>
+    <ClInclude Include="Asignatura.h">
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
