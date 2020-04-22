@@ -139,13 +139,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Nivel.cpp" />
     <ClCompile Include="Asignatura.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Algortimo.h" />
     <ClInclude Include="Asignatura.h" />
-    <ClInclude Include="ListaGenerica.h" />
+    <ClInclude Include="funcionesMembresia.h" />
     <ClInclude Include="Nivel.h" />
     <ClInclude Include="Sistema.h" />
   </ItemGroup>
