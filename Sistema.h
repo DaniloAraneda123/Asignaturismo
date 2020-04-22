@@ -39,7 +39,7 @@ public:
 
 
 
-	void calcularFactorArcos(float** experto, float** influenciaTotal, int columna, int tamano)
+	void calcularFactorArcos(float** experto, float** influenciaTotal, int columna, int tamano,int nivel)
 	{
 		float pendiente = 0, influencia = 0;
 
@@ -48,24 +48,30 @@ public:
 			pendiente = pendiente + experto[i][columna];            						//Mu es el valor dado por el experto e influencia es la multiplicacion de Mu*Fn
 			influencia = influencia + influenciaTotal[i][columna];
 		}
-		this->factorAtributos = influencia * (1 / pendiente);
+		if (nivel!=1)
+		{
+			this->factorArcos = influencia * (1 / pendiente);
+		}
+		//cout << "Factor Arcos: " << factorArcos << "  " << endl;
 	}
 
 
 	void calcularFactorAtributos()
 	{
-		float sumaPonderada = 0, atributo, lamda;
+		float sumaPonderada = 0;
 		for (int i = 0; i < listaAtributos.size(); i++)
 		{
 			sumaPonderada = sumaPonderada + listaAtributos[i] * listaLamdas[i];
 		}
+		this->factorAtributos= sumaPonderada;
+		//cout <<"Factor Atributos: " <<factorAtributos << "  "<<endl;
 	}
 
 
 
 	void calcularFactorTotal(bool ultimoNivel)
 	{
-		factorTotal = ponderacionFactorTotal[0] * factorAtributos + ponderacionFactorTotal[1] * factorArcos;
+		this->factorTotal = ponderacionFactorTotal[0] * factorAtributos + ponderacionFactorTotal[1] * factorArcos;
 		if (ultimoNivel != true)
 		{
 			padre->listaAtributos.push_back(factorTotal);

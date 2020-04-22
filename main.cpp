@@ -42,11 +42,38 @@ int main()
 
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////
-	cout << "nivel 2\n";
 	//Inicializamos los sistema del nivel 2
 	Sistema ingenieria1(1, 0, "Ingenieria1", &ingenieria), ingenieria2(1, 0, "Ingenieria2", &ingenieria),
 		matematica1(1, 0, "Matematicas1", &matematica), matematica2(1, 0, "Matematicas2", &matematica),
-		otros1(1, 0, "Otros", &otro), otros2(1, 0, "Otros", &otro);
+		otros1(1, 0, "Otros1", &otro), otros2(1, 0, "Otros2", &otro);
+
+	//lamdas y atributos
+
+	ingenieria1.listaLamdas.push_back(0.5f);
+	ingenieria1.listaLamdas.push_back(0.5f);
+	ingenieria2.listaLamdas.push_back(0.5f);
+	ingenieria2.listaLamdas.push_back(0.5f);
+	matematica1.listaLamdas.push_back(0.5f);
+	matematica1.listaLamdas.push_back(0.5f);
+	matematica2.listaLamdas.push_back(0.5f);
+	matematica2.listaLamdas.push_back(0.5f);
+	otros1.listaLamdas.push_back(0.5f);
+	otros1.listaLamdas.push_back(0.5f);
+	otros2.listaLamdas.push_back(0.5f);
+	otros2.listaLamdas.push_back(0.5f);
+
+	ingenieria1.listaAtributos.push_back(1);
+	ingenieria1.listaAtributos.push_back(0.625f);
+	ingenieria2.listaAtributos.push_back(1);
+	ingenieria2.listaAtributos.push_back(1);
+	matematica1.listaAtributos.push_back(0.565f);
+	matematica1.listaAtributos.push_back(0.125f);
+	matematica2.listaAtributos.push_back(0.869f);
+	matematica2.listaAtributos.push_back(0.375f);
+	otros1.listaAtributos.push_back(0);
+	otros1.listaAtributos.push_back(1);
+	otros2.listaAtributos.push_back(0.478f);
+	otros2.listaAtributos.push_back(1);
 
 	//lista de sistemas nivel 2
 	vector<Sistema> listaS2;
@@ -56,7 +83,7 @@ int main()
 	listaS2.push_back(ingenieria2);
 	listaS2.push_back(matematica2);
 	listaS2.push_back(otros2);
-	cout << "Hola\n";
+
 	//matriz incidencia nivel 2
 	float** matrizIncidencia2 = new float* [6];
 	for (int i = 0; i < 6; i++) matrizIncidencia2[i] = new float[6];
@@ -65,6 +92,8 @@ int main()
 			matrizIncidencia2[i][j] = 0;
 		}
 	}
+
+
 
 	niveles[1] = Nivel(6, matrizIncidencia2, listaS2);
 

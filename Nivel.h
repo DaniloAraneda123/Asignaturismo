@@ -72,7 +72,14 @@ void imprimirNivel(Nivel n)
 {
 	for (int i = 0; i < n.matrizTamano; i++)
 	{
-		cout << "Nombre del Sistema: " << n.listaSistemas[i].nombreSistema << "  FT: " << n.listaSistemas[i].factorTotal << endl;
+		cout << "Nombre del Sistema: " << n.listaSistemas[i].nombreSistema << "  FT: " << n.listaSistemas[i].factorTotal
+			<< "  FA: " << n.listaSistemas[i].factorArcos << "  FN: " << n.listaSistemas[i].factorAtributos << endl;
+		cout << "Lista Atributos: ";
+		for (int j=0 ; j< n.listaSistemas[i].listaAtributos.size() ; j++)
+		{
+			cout <<n.listaSistemas[i].listaAtributos[j]<<"*"<< n.listaSistemas[i].listaLamdas[j]<<"  -  ";
+		}
+		cout << endl;
 	}
 	imprimirMatriz(n.valorExperto, n.matrizTamano);
 }

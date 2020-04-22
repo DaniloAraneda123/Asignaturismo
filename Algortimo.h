@@ -7,11 +7,11 @@ using namespace std;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void revizarLvlFactorArcos(Nivel nivel)
+void revizarLvlFactorArcos(Nivel nivel,int n)
 {
 	for (int i = 0; i < nivel.listaSistemas.size(); i++)
 	{															//Vamos por todos los nodos o sistema de este nivel calculando FA
-		nivel.listaSistemas[i].calcularFactorArcos(nivel.valorExperto, nivel.influenciaTotal, i, nivel.matrizTamano);
+		nivel.listaSistemas[i].calcularFactorArcos(nivel.valorExperto, nivel.influenciaTotal, i, nivel.matrizTamano,n);
 	}
 }
 
@@ -49,6 +49,7 @@ void revizarLvlFactorAtributos(Nivel nivel)
 	for (int i = 0; i < nivel.listaSistemas.size(); i++)											//Vamos por todos los sistemas de este nivel calculando los factores de  atributos
 	{
 		nivel.listaSistemas[i].calcularFactorAtributos();
+		cout<< "  "<<nivel.listaSistemas[i].factorAtributos<<endl;
 	}
 }
 
@@ -58,12 +59,11 @@ float algoritmo(vector<Nivel> niveles, vector<float> listaPonderacion)
 {														//Partimos del ultimo nivel del sistema calculando 
 	for (int i = niveles.size() - 1; i >= 0; i--) 					//Vamos calculando desde los niveles mas bajos a los mas altos
 	{
-		cout << i<<"\n";
 		revizarLvlFactorAtributos(niveles[i]);				//Partimos calculando el FN primero
 		niveles[i].actualizarMatrizIncidencia();	//Una vez calculado el Fn de cada nodo en ese subsistema, hay que actualizar los pesos de los arcos que recodar que este se defino como Mu*Fn
-		revizarLvlFactorArcos(niveles[i]);   //Promedi ponderado simple conj Fn y Fa, y la ponderancia es cunato es afecto el sistema por el exterior y que tanto define un sistema sus atributos.
+		revizarLvlFactorArcos(niveles[i],i);//Promedi ponderado simple conj Fn y Fa, y la ponderancia es cunato es afecto el sistema por el exterior y que tanto define un sistema sus atributos.
 		revizarLvlFactorTotal(niveles[i], i);
-		imprimirNivel(niveles[i]);
+		//imprimirNivel(niveles[i]);
 	}
 	return calcularFactorDesvio(niveles[0], listaPonderacion);
 }
