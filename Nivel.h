@@ -68,6 +68,8 @@ void imprimirMatriz(float** n, int tamano)
 }
 
 
+
+
 void imprimirNivel(Nivel n)
 {
 	for (int i = 0; i < n.matrizTamano; i++)

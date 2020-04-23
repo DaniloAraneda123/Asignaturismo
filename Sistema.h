@@ -12,17 +12,30 @@ public:
 	float factorAtributos, factorArcos, factorTotal;
 	vector<float> listaAtributos, listaLamdas;
 	float ponderacionFactorTotal[2];
-	Sistema* padre;
+	string nombrePadre;
 	float miPonderacionAlPadre;
 
 public:
-	Sistema(float ponderacionFactorAtributos, float ponderacionFactorArcos, string name, Sistema* padre)
+	Sistema(float ponderacionFactorAtributos, float ponderacionFactorArcos, string name, string p)
 	{
 		nombreSistema = name;
 		factorArcos = 0;
 		factorAtributos = 0;
 		factorTotal = 0;
-		this->padre = padre;
+		nombrePadre = p;
+		ponderacionFactorTotal[0] = ponderacionFactorAtributos;
+		ponderacionFactorTotal[1] = ponderacionFactorArcos;
+
+	}
+
+	Sistema(float ponderacionFactorAtributos, float ponderacionFactorArcos, float mp, string name, string p)
+	{
+		miPonderacionAlPadre = mp;
+		nombreSistema = name;
+		factorArcos = 0;
+		factorAtributos = 0;
+		factorTotal = 0;
+		nombrePadre = p;
 		ponderacionFactorTotal[0] = ponderacionFactorAtributos;
 		ponderacionFactorTotal[1] = ponderacionFactorArcos;
 
@@ -69,13 +82,8 @@ public:
 
 
 
-	void calcularFactorTotal(bool ultimoNivel)
-	{
-		this->factorTotal = ponderacionFactorTotal[0] * factorAtributos + ponderacionFactorTotal[1] * factorArcos;
-		if (ultimoNivel != true)
-		{
-			padre->listaAtributos.push_back(factorTotal);
-			padre->listaLamdas.push_back(miPonderacionAlPadre);
-		}
+	float calcularFactorTotal()
+	{factorTotal = ponderacionFactorTotal[0] * factorAtributos + ponderacionFactorTotal[1] * factorArcos;
+		return factorTotal;
 	}
 };

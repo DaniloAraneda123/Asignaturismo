@@ -43,9 +43,11 @@ int main()
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////
 	//Inicializamos los sistema del nivel 2
-	Sistema ingenieria1(1, 0, "Ingenieria1", &ingenieria), ingenieria2(1, 0, "Ingenieria2", &ingenieria),
-		matematica1(1, 0, "Matematicas1", &matematica), matematica2(1, 0, "Matematicas2", &matematica),
-		otros1(1, 0, "Otros1", &otro), otros2(1, 0, "Otros2", &otro);
+
+	Sistema ingenieria1(1, 0 ,0.5f, "Ingenieria1", "Ingenieria"), ingenieria2(1, 0 , 0.5f, "Ingenieria2", "Ingenieria"),
+		matematica1(1, 0,  0.5f,"Matematicas1", "Matematicas"),
+		matematica2(1, 0 , 0.5f, "Matematicas2", "Matematicas"),
+		otros1(1, 0,  0.5f, "Otros1", "Otros"), otros2(1, 0 , 0.5f, "Otros2", "Otros");
 
 	//lamdas y atributos
 
@@ -106,6 +108,7 @@ int main()
 	lista.push_back(0.333f);
 	lista.push_back(0.333f);
 	float resultado = 0;
+
 	resultado = algoritmo(niveles, lista);
 	cout << "El resultado es: " << resultado;
 
