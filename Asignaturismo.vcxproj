@@ -145,6 +145,7 @@
     <ClInclude Include="Algortimo.h" />
     <ClInclude Include="Asignatura.h" />
     <ClInclude Include="funcionesMembresia.h" />
+    <ClInclude Include="leerDatos.h" />
     <ClInclude Include="Nivel.h" />
     <ClInclude Include="Sistema.h" />
   </ItemGroup>
