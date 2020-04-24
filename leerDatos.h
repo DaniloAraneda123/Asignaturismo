@@ -230,7 +230,6 @@ vector<Nivel>leerDatos()
 {
 	vector<Nivel> niveles;
 	leerNivel(&niveles);
-	leerSistemaUltimoNivel();
-	///Modulo Bryan
+	niveles[niveles.size()-1].listaSistemas=leerSistemaUltimoNivel();
 	return niveles;
 }
