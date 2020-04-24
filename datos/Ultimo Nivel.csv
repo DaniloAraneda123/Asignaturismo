@@ -1,0 +1,7 @@
+Nombre;Nombre Padre;Mi ponderacion;Ponderacion Estado Atributos;Ponderacion  EstadoArcos;NumeroAtributos;Input Alumnos;Funcion Membresia;lambda;Input Horas;Funcion Membresia;lambda
+Matematicas1;Matematicas;0.5;1;0;2;32;1:11:22:45;0.5;2;1:9:10:14;0.5
+Matematicas2;Matematicas;0.5;1;0;2;25;1:11:22:45;0.5;4;1:9:10:14;0.5
+Ingenieria1;Ingenierica;0.5;1;0;2;11;1:11:22:45;0.5;6;1:9:10:14;0.5
+Ingenieria2;Ingenierica;0.5;1;0;2;11;1:11:22:45;0.5;10;1:9:10:14;0.5
+Otros1;Otros;0.5;1;0;2;45;1:11:22:45;0.5;10;1:9:10:14;0.5
+Otros2;Otros;0.5;1;0;2;34;1:11:22:45;0.5;10;1:9:10:14;0.5

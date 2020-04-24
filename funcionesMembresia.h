@@ -1,6 +1,6 @@
 #pragma once
 
-float funcionTrapezoidal(float valorEvaluado, float a, float b, float c, float d)
+float funcionMembresia(float valorEvaluado, float a, float b, float c, float d)
 {
 	float resultado = 0;
 
@@ -24,7 +24,8 @@ float funcionTrapezoidal(float valorEvaluado, float a, float b, float c, float d
 	return resultado;
 }
 
-float funcionTriangular(float valorEvaluado,float a, float b, float c)
+
+float funcionMembresia(float valorEvaluado,float a, float b, float c)
 {
 	float resultado = 0;
 
