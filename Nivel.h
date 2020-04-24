@@ -52,36 +52,53 @@ public:
 			}
 		}
 	}
+
+
+	void imprimirMatrizValorExperto()
+	{
+		cout << "Tamanio Matriz = " << matrizTamano << endl;
+		for (int i = 0; i < matrizTamano; i++)
+		{
+			for (int j = 0; j < matrizTamano; j++)
+			{
+				cout << valorExperto[i][j] << "  ";
+			}
+			cout << "\n";
+		}
+	}
+
+	void imprimirMatrizValorTotal()
+	{
+		cout << "Tamanio Matriz = " << matrizTamano << endl;
+		for (int i = 0; i < matrizTamano; i++)
+		{
+			for (int j = 0; j < matrizTamano; j++)
+			{
+				cout << influenciaTotal[i][j] << "  ";
+			}
+			cout << "\n";
+		}
+	}
+
+	void imprimirNivel()
+	{
+		for (int i = 0; i < matrizTamano; i++)
+		{
+			if (listaSistemas.size()>0) {
+				cout << "Nombre del Sistema: " << listaSistemas[i].nombreSistema << "  FT: " << listaSistemas[i].factorTotal
+					<< "  FA: " << listaSistemas[i].factorArcos << "  FN: " << listaSistemas[i].factorAtributos << endl;
+				cout << "Lista Atributos: ";
+				for (int j = 0; j < listaSistemas[i].listaAtributos.size(); j++)
+				{
+					cout << listaSistemas[i].listaAtributos[j] << "*" << listaSistemas[i].listaLamdas[j] << "  -  ";
+				}
+				cout << endl;
+			}
+		}
+		imprimirMatrizValorExperto();
+	}
 };
 
-void imprimirMatriz(float** n, int tamano)
-{
-	cout << "Tamaño Matriz = " << tamano << endl;
-	for (int i = 0; i < tamano; i++)
-	{
-		for (int j = 0; j < tamano; j++)
-		{
-			cout << n[i][j] << "  ";
-		}
-		cout << "\n";
-	}
-}
 
 
 
-
-void imprimirNivel(Nivel n)
-{
-	for (int i = 0; i < n.matrizTamano; i++)
-	{
-		cout << "Nombre del Sistema: " << n.listaSistemas[i].nombreSistema << "  FT: " << n.listaSistemas[i].factorTotal
-			<< "  FA: " << n.listaSistemas[i].factorArcos << "  FN: " << n.listaSistemas[i].factorAtributos << endl;
-		cout << "Lista Atributos: ";
-		for (int j=0 ; j< n.listaSistemas[i].listaAtributos.size() ; j++)
-		{
-			cout <<n.listaSistemas[i].listaAtributos[j]<<"*"<< n.listaSistemas[i].listaLamdas[j]<<"  -  ";
-		}
-		cout << endl;
-	}
-	imprimirMatriz(n.valorExperto, n.matrizTamano);
-}
