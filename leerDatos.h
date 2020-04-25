@@ -163,11 +163,12 @@ vector<Sistema> leerSistemaUltimoNivel()
 			else if (tipoFuncion == "Triangular") {
 				atributo = funcionTriangular(input, a, b, c);
 			}
+
 			// Valores de lista lambda
 			getline(ss, campo, delimitador);
 			lambda = std::stof(campo);
 
-			cout << nombre << " " << atributo<< " " << lambda << " " << d << endl;
+			cout << "Valor Atributo:" <<atributo <<  endl;
 			sistema.listaAtributos.push_back(atributo);
 			sistema.listaLamdas.push_back(lambda);
 
