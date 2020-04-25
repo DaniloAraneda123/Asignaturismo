@@ -1,4 +1,11 @@
 Nivel;Nombre;Nombre Padre;Mi ponderacion;Ponderacion Estado Atributos;Ponderacion EstadoArcos
-1;Matematicas;Sist;0.333;0.5;0.5
-1;Ingenierica;Sist;0.333;0.5;0.5
-1;Otros;Sist;0.333;0.5;0.5
+1;Asignaturismo;Sist;0.5;0.5;0.5
+1;Docencia;Sist;0.5;0.7;0.3
+2;Ingenieria;Asignaturismo;0.25;0.5;0.5
+2;Matematicas;Asignaturismo;0.25;0.5;0.5
+2;Ciencias;Asignaturismo;0.15;0.5;0.5
+2;Especialidad;Asignaturismo;0.3;0.5;0.5
+2;Otros;Asignaturismo;0.05;0.5;0.5
+2;Profesores Especialidad;Docencia;0.5;0.8;0.2
+2;Profesores No Especialidad;Docencia;0.25;0.8;0.2
+2;Profesores Hora;Docencia;0.25;0.8;0.2
