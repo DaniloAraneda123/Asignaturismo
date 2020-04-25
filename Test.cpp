@@ -13,11 +13,11 @@ int main()
 
 	niveles[0].imprimirNivel();
 	niveles[1].imprimirNivel();
-	vector<float> listaPonderacion(3);
+	vector<float> listaPonderacion(2);
 
-	listaPonderacion[0] = 0.333;
-	listaPonderacion[1] = 0.333;
-	listaPonderacion[2] = 0.333;
+	listaPonderacion[0] = 0.5;
+	listaPonderacion[1] = 0.5;
+	
 	float desvio=algoritmo(niveles, listaPonderacion);
 	cout << (1 - desvio);
 	

@@ -99,6 +99,7 @@ vector<Sistema> leerSistemaUltimoNivel()
 		getline(ss, campo, delimitador);
 		nombrePadre = campo;
 		getline(ss, campo, delimitador);
+		cout << campo << endl;
 		miPonderacion = std::stof(campo);
 		getline(ss, campo, delimitador);
 		ponderacionTotal[0] = std::stof(campo);
@@ -246,5 +247,6 @@ vector<Nivel>leerDatos()
 	vector<Nivel> niveles;
 	leerNivel(&niveles);
 	niveles[niveles.size()-1].listaSistemas=leerSistemaUltimoNivel();
+	cout << niveles[2].listaSistemas.size() << endl;
 	return niveles;
 }

@@ -63,7 +63,13 @@ public:
 		}
 		if (nivel!=1)
 		{
-			this->factorArcos = influencia * (1 / pendiente);
+			if (pendiente == 0) {
+				this->factorArcos = 0;
+			}
+			else {
+				this->factorArcos = influencia * (1 / pendiente);
+			}
+			
 		}
 		//cout << "Factor Arcos: " << factorArcos << "  " << endl;
 	}
