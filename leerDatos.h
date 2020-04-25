@@ -53,7 +53,7 @@ vector<Sistema> leerSistemas(int n)
 			ponderacionTotal[0]= std::stof(campo);
 			getline(ss, campo, delimitador);
 			ponderacionTotal[1] = std::stof(campo);
-			cout << nombre << " " << nombrePadre << " " << miPonderacion << " " << ponderacionTotal[0] << " " << ponderacionTotal[1] << endl;
+			//cout << nombre << " " << nombrePadre << " " << miPonderacion << " " << ponderacionTotal[0] << " " << ponderacionTotal[1] << endl;
 
 			//una vez leido todos los campos, almacenamos el sistema
 			listaSistemas.push_back(Sistema(ponderacionTotal[0], ponderacionTotal[1], miPonderacion, nombre, nombrePadre));
@@ -99,7 +99,7 @@ vector<Sistema> leerSistemaUltimoNivel()
 		getline(ss, campo, delimitador);
 		nombrePadre = campo;
 		getline(ss, campo, delimitador);
-		cout << campo << endl;
+		//cout << campo << endl;
 		miPonderacion = std::stof(campo);
 		getline(ss, campo, delimitador);
 		ponderacionTotal[0] = std::stof(campo);
@@ -124,7 +124,7 @@ vector<Sistema> leerSistemaUltimoNivel()
 		int d;
 		string tipoFuncion;
 		stringstream membresia;
-		cout << cantidadInputs << endl;
+		//cout << cantidadInputs << endl;
 		for (int i = 0; i < cantidadInputs; i++) {
 
 			// Que tipo de funcion de membresia
@@ -135,7 +135,7 @@ vector<Sistema> leerSistemaUltimoNivel()
 			input = std::stof(campo);
 			// Funciones de membresia
 			getline(ss, campo, delimitador);
-			cout << campo << endl;
+			//cout << campo << endl;
 			membresia = stringstream(campo);
 
 			// Almacenamos los valores de la función de membresia
@@ -168,7 +168,7 @@ vector<Sistema> leerSistemaUltimoNivel()
 			getline(ss, campo, delimitador);
 			lambda = std::stof(campo);
 
-			cout << "Valor Atributo:" <<atributo <<  endl;
+			//cout << "Valor Atributo:" <<atributo <<  endl;
 			sistema.listaAtributos.push_back(atributo);
 			sistema.listaLamdas.push_back(lambda);
 

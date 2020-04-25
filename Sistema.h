@@ -61,17 +61,14 @@ public:
 			pendiente = pendiente + experto[i][columna];            						//Mu es el valor dado por el experto e influencia es la multiplicacion de Mu*Fn
 			influencia = influencia + influenciaTotal[i][columna];
 		}
-		if (nivel!=1)
-		{
-			if (pendiente == 0) {
-				this->factorArcos = 0;
-			}
-			else {
-				this->factorArcos = influencia * (1 / pendiente);
-			}
-			
+		if (pendiente == 0) {
+			this->factorArcos = 0;
 		}
-		//cout << "Factor Arcos: " << factorArcos << "  " << endl;
+		else {
+			this->factorArcos = influencia * (1 / pendiente);
+		}
+			
+		
 	}
 
 
@@ -89,7 +86,13 @@ public:
 
 
 	float calcularFactorTotal()
-	{factorTotal = ponderacionFactorTotal[0] * factorAtributos + ponderacionFactorTotal[1] * factorArcos;
+	{
+		factorTotal = ponderacionFactorTotal[0] * factorAtributos + ponderacionFactorTotal[1] * factorArcos;
+		/*cout << nombrePadre << endl;
+		cout << nombreSistema << endl;
+		cout << ponderacionFactorTotal[0] << " * " << factorAtributos << " + " << ponderacionFactorTotal[1] << " * " << factorArcos << endl;
+		cout << factorTotal;
+		getchar();*/
 		return factorTotal;
 	}
 };

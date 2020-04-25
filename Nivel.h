@@ -63,6 +63,7 @@ public:
 			{
 				cout << valorExperto[i][j] << "  ";
 			}
+			cout << listaSistemas[i].nombreSistema;
 			cout << "\n";
 		}
 	}
@@ -76,6 +77,7 @@ public:
 			{
 				cout << influenciaTotal[i][j] << "  ";
 			}
+			cout<<listaSistemas[i].nombreSistema;
 			cout << "\n";
 		}
 	}
