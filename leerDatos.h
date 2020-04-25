@@ -121,16 +121,23 @@ vector<Sistema> leerSistemaUltimoNivel()
 		int b;
 		int c;
 		int d;
-		string funcion;
+		string tipoFuncion;
 		stringstream membresia;
+		cout << cantidadInputs << endl;
 		for (int i = 0; i < cantidadInputs; i++) {
+
+			// Que tipo de funcion de membresia
+			getline(ss, campo, delimitador);
+			tipoFuncion = campo;
 			// Almacenamos valores inputs
 			getline(ss, campo, delimitador);
 			input = std::stof(campo);
-
 			// Funciones de membresia
 			getline(ss, campo, delimitador);
+			cout << campo << endl;
 			membresia = stringstream(campo);
+
+			// Almacenamos los valores de la función de membresia
 			getline(membresia, campo, ':');
 			a = std::stof(campo);
 			getline(membresia, campo, ':');
@@ -141,17 +148,25 @@ vector<Sistema> leerSistemaUltimoNivel()
 			d = std::stof(campo);
 
 			// Valores de lista atributos
-			if (d == -1) {
-				atributo = funcionMembresia(input, a, b, c);
+			//cout << a << b << c << d << endl;
+			// Valores de lista atributos
+			if (tipoFuncion == "TrapezoidalI") {
+				atributo = funcionTrapezoidalABInfinitoNegativo(input, c, d);
 			}
-			else {
-				atributo = funcionMembresia(input, a, b, c, d);
+			else if (tipoFuncion == "TrapezoidalD") {
+				atributo = funcionTrapezoidalCDInfinitoPositivo(input, a, b);
+			}
+			else if (tipoFuncion == "Trapezoidal") {
+				atributo = funcionTrapezoidal(input, a, b, c, d);
+			}
+			else if (tipoFuncion == "Triangular") {
+				atributo = funcionTriangular(input, a, b, c);
 			}
 			// Valores de lista lambda
 			getline(ss, campo, delimitador);
 			lambda = std::stof(campo);
 
-			//cout << nombre << " " << atributo<< " " << lambda << " " << d << endl;
+			cout << nombre << " " << atributo<< " " << lambda << " " << d << endl;
 			sistema.listaAtributos.push_back(atributo);
 			sistema.listaLamdas.push_back(lambda);
 

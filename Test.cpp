@@ -20,6 +20,6 @@ int main()
 	listaPonderacion[2] = 0.333;
 	float desvio=algoritmo(niveles, listaPonderacion);
 	cout << (1 - desvio);
-
+	
 	return 0;
 }
