@@ -1,0 +1,39 @@
+Factore de desvio: ;0.0499964%
+Nombre del sistemas;Estado del sistema;Factor Atributos;Factor Arcos
+Asignaturismo;1;1;1
+Docencia;0.999;0.999;0.999
+Ingenieria;1;1;1
+Matematicas;1;1;1
+Ciencias;1;1;1
+Especialidad;1;1;1
+Otros;1;1;1
+Profesores Especialidad;0.999;0.999;0.999
+Profesores No Especialidad;0.999;0.999;0.999
+Profesores Hora;0.999;0.999;0.999
+Investigacion de Operaciones;1;1;1
+Contabilidad General y de Costos;1;1;1
+Evaluacion de Proyectos;1;1;1
+Introduccion a la informatica y computacion;1;1;1
+Estructura de Datos;1;1;1
+Programacion;1;1;1
+Diseño y Analisis de Algoritmo;1;1;1
+Base de Datos;1;1;1
+Programacion Avanzada;1;1;1
+Ingenieria de Software I;1;1;1
+Comunicación de Datos y Redes;1;1;1
+Inteligencia Artificial;1;1;1
+Matematicas II ;1;1;1
+Probabilidad y Estadistica;1;1;1
+Analisis Numerico;1;1;1
+Ingles 1;1;1;1
+Sociologia Industrial y del Trabajo;1;1;1
+Fisica I ;1;1;1
+Profesor 1;1;1;0
+Profesor 2;1;1;0
+Profesor 3;1;1;0
+Profesor 4;1;1;0
+Profesor 5;1;1;0
+Profesor 6;1;1;0
+Profesor 7;1;1;0
+Profesor 8;1;1;0
+Profesor 9;1;1;0

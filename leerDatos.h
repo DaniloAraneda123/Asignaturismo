@@ -88,7 +88,7 @@ vector<Sistema> leerSistemaUltimoNivel()
 	//Incicialisando variables para leer Inputs
 	std::stringstream ssInputs;
 	string LineaInputs;
-	ifstream ficheroInputs("datos/Inputs.csv");
+	ifstream ficheroInputs("Inputs.csv");
 	if (!ficheroInputs)
 	{
 		cout << "Archivo de Inputs no encontrado, ERROR";
@@ -289,7 +289,7 @@ vector<Nivel>leerDatos()
 void generarInforme(vector<Nivel >niveles,float desvio) 
 {
 	ofstream archivo;
-	archivo.open("datos/reporte.csv");
+	archivo.open("Reporte.csv");
 	archivo<< "Factore de desvio: "<<";"<<desvio<<"%\n";
 	archivo << "Nombre del sistemas;Estado del sistema;Factor Atributos;Factor Arcos\n";
 	for (int i = 0;i<niveles.size();i++) {
