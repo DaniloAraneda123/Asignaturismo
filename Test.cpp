@@ -19,11 +19,11 @@ int main()
 	listaPonderacion[0] = 0.5;
 	listaPonderacion[1] = 0.5;
 	
-	float desvio=algoritmo(niveles, listaPonderacion);
-	cout << desvio;
+	float desvio=(1-algoritmo(&niveles, listaPonderacion))*100;
+	cout << desvio<<endl;
+
+	generarInforme(niveles,desvio);
 
 
-
-	
 	return 0;
 }

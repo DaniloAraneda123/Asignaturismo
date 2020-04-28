@@ -88,10 +88,9 @@ public:
 	float calcularFactorTotal()
 	{
 		factorTotal = ponderacionFactorTotal[0] * factorAtributos + ponderacionFactorTotal[1] * factorArcos;
-		/*cout << nombrePadre << endl;
-		cout << nombreSistema << endl;
-		cout << ponderacionFactorTotal[0] << " * " << factorAtributos << " + " << ponderacionFactorTotal[1] << " * " << factorArcos << endl;
-		cout << factorTotal;
+		/*cout << nombreSistema << endl;
+		cout << factorAtributos << " - " << factorArcos<< endl;
+		cout << factorTotal<<endl;
 		getchar();*/
 		return factorTotal;
 	}

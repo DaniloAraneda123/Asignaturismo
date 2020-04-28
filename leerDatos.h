@@ -80,12 +80,24 @@ vector<Sistema> leerSistemaUltimoNivel()
 	//deshechamos la primera linea
 	getline(fichero, linea);
 
-
-
 	int nivel = 0;
 	string nombre, nombrePadre;
 	float miPonderacion, ponderacionTotal[2];
 	int cantidadInputs = 0;
+
+	//Incicialisando variables para leer Inputs
+	std::stringstream ssInputs;
+	string LineaInputs;
+	ifstream ficheroInputs("datos/Inputs.csv");
+	if (!ficheroInputs)
+	{
+		cout << "Archivo de Inputs no encontrado, ERROR";
+		exit(1); // terminate si no se encuentra el archivo
+	}
+	//deshechamos la primera linea
+	getline(ficheroInputs, LineaInputs);
+
+
 	//Revisa el fichero buscando los sistemas
 	while (getline(fichero, linea))
 	{
@@ -94,6 +106,7 @@ vector<Sistema> leerSistemaUltimoNivel()
 		// nivel = std::stoi(campo);
 
 		//si el sistema pertenece al nivel que se esta recantando, lo guardara
+		//Recatamos los datos en Iniciales
 		getline(ss, campo, delimitador);
 		nombre = campo;
 		getline(ss, campo, delimitador);
@@ -105,7 +118,6 @@ vector<Sistema> leerSistemaUltimoNivel()
 		ponderacionTotal[0] = std::stof(campo);
 		getline(ss, campo, delimitador);
 		ponderacionTotal[1] = std::stof(campo);
-		//cout << nombre << " " << nombrePadre << " " << miPonderacion << " " << ponderacionTotal[0] << " " << ponderacionTotal[1] << endl;
 
 		//una vez leido todos los campos, almacenamos el sistema
 		Sistema sistema(ponderacionTotal[0], ponderacionTotal[1], miPonderacion, nombre, nombrePadre);
@@ -124,14 +136,19 @@ vector<Sistema> leerSistemaUltimoNivel()
 		int d;
 		string tipoFuncion;
 		stringstream membresia;
-		//cout << cantidadInputs << endl;
+
+		//leer lineas del inputs
+		getline(ficheroInputs, LineaInputs);
+		ssInputs = stringstream(LineaInputs);
+		getline(ssInputs, campo, delimitador);//sacamos el nombre
+
 		for (int i = 0; i < cantidadInputs; i++) {
 
 			// Que tipo de funcion de membresia
 			getline(ss, campo, delimitador);
 			tipoFuncion = campo;
 			// Almacenamos valores inputs
-			getline(ss, campo, delimitador);
+			getline(ssInputs, campo, delimitador);
 			input = std::stof(campo);
 			// Funciones de membresia
 			getline(ss, campo, delimitador);
@@ -200,30 +217,48 @@ void leerNivel(vector <Nivel>* niveles)
 	getline(fichero,linea);
 	ss = stringstream(linea);
 	getline(ss, campo,delimitador);
+	getline(ss, campo, delimitador);
 	int numeroNiveles = std::stoi(campo);
+
+	//Saltamos Linea
+	getline(fichero, linea);
 
 
 	//Por cada nivel , rescatamos su matriz de incidencia
 	int tamanoMatriz;
+	string nombreArchivo;
 	float** matrizExperto;
+	ifstream ficheroMatriz;
 	for (int n=0 ; n< numeroNiveles ; n++)
 	{
-		//obtenemos el Tamaño de la matriz de incidencia del nivel n
+		//obtenemos el Tamaño de la matriz de incidencia del nivel n y el nombre del archivo que la contiene
 		getline(fichero, linea);
 		ss = stringstream(linea);
 		getline(ss, campo, delimitador);
-		tamanoMatriz = std::stoi(campo);
+		tamanoMatriz = std::stoi(campo);//tamano
+		getline(ss, campo, delimitador);
+		nombreArchivo = campo;// nombre archivo
+
+		ficheroMatriz=ifstream("datos/"+nombreArchivo);
+
+
+		//Abrimos la matriz
+		cout << tamanoMatriz<<" "<< nombreArchivo<<endl;
+		if (!ficheroMatriz)
+		{
+			cout << "Archivo : "<< nombreArchivo <<" no encontrado,ERROR";
+			exit(1); // terminate si no se encuentra el archivo
+		}
 
 		//creamos una matriz
 		matrizExperto = new float* [tamanoMatriz];
-
-
 		//Rescatamos la matriz de incidencia
 		for (int i = 0; i < tamanoMatriz; i++)
 		{
 			matrizExperto[i] = new float[tamanoMatriz];
 
-			getline(fichero, linea);
+			getline(ficheroMatriz, linea);
+			cout << linea << endl;
 			ss = stringstream(linea);
 			for (int j = 0; j< tamanoMatriz; j++)
 			{
@@ -248,6 +283,21 @@ vector<Nivel>leerDatos()
 	vector<Nivel> niveles;
 	leerNivel(&niveles);
 	niveles[niveles.size()-1].listaSistemas=leerSistemaUltimoNivel();
-	cout << niveles[2].listaSistemas.size() << endl;
 	return niveles;
+}
+
+void generarInforme(vector<Nivel >niveles,float desvio) 
+{
+	ofstream archivo;
+	archivo.open("datos/reporte.csv");
+	archivo<< "Factore de desvio: "<<";"<<desvio<<"%\n";
+	archivo << "Nombre del sistemas;Estado del sistema;Factor Atributos;Factor Arcos\n";
+	for (int i = 0;i<niveles.size();i++) {
+		for (int j = 0; j < niveles[i].listaSistemas.size(); j++) 
+		{
+			archivo << niveles[i].listaSistemas[j].nombreSistema << ";" << niveles[i].listaSistemas[j].factorTotal << ";" <<
+				niveles[i].listaSistemas[j].factorAtributos << ";" << niveles[i].listaSistemas[j].factorArcos << "\n";
+		}
+
+	}
 }

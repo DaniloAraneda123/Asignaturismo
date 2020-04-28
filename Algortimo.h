@@ -77,41 +77,18 @@ INPUT:
 niveles:			Contine todos los nivel del sistema
 listaPonderacion:	contiene la ponderacion de los sistemas del nivel 1
 */
-float algoritmo(vector<Nivel> niveles, vector<float> listaPonderacion)
+float algoritmo(vector<Nivel> *niveles, vector<float> listaPonderacion)
 {														//Partimos del ultimo nivel del sistema calculando 
-	for (int i = niveles.size() - 1; i >= 0; i--) 					//Vamos calculando desde los niveles mas bajos a los mas altos
+	for (int i = niveles->size() - 1; i >= 0; i--) 					//Vamos calculando desde los niveles mas bajos a los mas altos
 	{
 
-		//cout <<endl<< "Estoy en el nivel: " << i<<endl;
+		revizarLvlFactorAtributos(&((*niveles)[i]));
 
-		revizarLvlFactorAtributos(&niveles[i]);//Partimos calculando el FN primero
+		(*niveles)[i].actualizarMatrizIncidencia();
 
-		/*cout <<endl<< "Factor Atributos "<< endl;
-		for (int j = 0; j < niveles[i].listaSistemas.size(); j++)											//Vamos por todos los sistemas de este nivel calculando los factores de  atributos
-		{
-			cout<< "  "<< niveles[i].listaSistemas[j].factorAtributos<<endl;
-		}*/
+		revizarLvlFactorArcos(&((*niveles)[i]),i);
 
-		niveles[i].actualizarMatrizIncidencia();//Una vez calculado el Fn de cada nodo en ese subsistema, hay que actualizar los pesos de los arcos que recodar que este se defino como Mu*Fn
-
-		// Imprimir matriz expertos
-		//cout << endl << " Matriz experto " <<endl;
-		//imprimirMatriz(niveles[i].valorExperto, niveles[i].listaSistemas.size());
-
-		//cout <<endl<< " Matriz Total " << endl;
-		//Imprimir matriz Total
-		//imprimirMatriz(niveles[i].influenciaTotal, niveles[i].listaSistemas.size());
-
-		revizarLvlFactorArcos(&niveles[i],i);//Promedi ponderado simple conj Fn y Fa, y la ponderancia es cunato es afecto el sistema por el exterior y que tanto define un sistema sus atributos.
-
-		/*cout << endl << "Factor Arcos " << endl;
-		for (int j = 0; j < niveles[i].listaSistemas.size(); j++)											//Vamos por todos los sistemas de este nivel calculando los factores de  atributos
-		{
-			cout << "  " << niveles[i].listaSistemas[j].factorArcos << endl;
-		}*/
-
-		revizarLvlFactorTotal(&niveles, i);
-		//imprimirNivel(niveles[i]);
+		revizarLvlFactorTotal(niveles, i);
 	}
-	return calcularFactorDesvio(&niveles[0], listaPonderacion);
+	return calcularFactorDesvio(&(*niveles)[0], listaPonderacion);
 }
